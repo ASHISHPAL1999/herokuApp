@@ -1,7 +1,10 @@
 const express=require("express");
+require('dotenv').config()
+const port=process.env.PORT || 2000
 const app=express();
 const cors=require("cors");
 app.use(cors());
+
 const mydata=require('./data')
 
 app.get("/newsapi",(req,res)=>{
@@ -11,6 +14,6 @@ app.get("/newsapi",(req,res)=>{
 
 })
 
-app.listen(2000,()=>{
-    console.log(`running at 2000`);
+app.listen(port,()=>{
+    console.log(`running at ${port}`);
 })
